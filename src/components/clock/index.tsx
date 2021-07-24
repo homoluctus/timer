@@ -31,13 +31,12 @@ export class Clock extends React.Component<Props, State> {
   }
 
   get time(): string {
-    return [
-      this.state.date.getHours(),
-      this.state.date.getMinutes(),
-      this.state.date.getSeconds()
-    ]
-      .map((v) => this.pad(v))
-      .join(':');
+    return this.state.date.toLocaleTimeString([], {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
   }
 
   render() {
