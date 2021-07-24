@@ -26,10 +26,6 @@ export class Clock extends React.Component<Props, State> {
     this.setState({ date: new Date() });
   }
 
-  private pad(target: number): string {
-    return `${target < 10 ? '0' : ''}${target}`;
-  }
-
   get time(): string {
     return this.state.date.toLocaleTimeString([], {
       hour12: false,
